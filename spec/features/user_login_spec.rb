@@ -2,20 +2,48 @@ require "rails_helper"
 
 RSpec.feature "visitor logs in" do
   context "enters valid username and password combination" do
-    scenario "sees user dashboard page" do
+    scenario "sees thoughts page" do
       user = create(:user)
-      visit "/"
-      fill_in "Username", with: user.email
+      visit login_path
+      fill_in "Email", with: user.email
       fill_in "Password", with: "password"
+      fill_in "Confirm password", with: "password"
       click_button "Login"
 
-      expect(current_path).to eq "/dashboard"
-      expect(page).to have_content("Logged in as #{user.username}")
-      expect(page).to have_content("All Orders")
-      expect(page).to have_content("Logout")
-      expect(page).to have_content("My Account")
-      expect(page).to_not have_content("Login")
-      expect(page).to_not have_content("Create Account")
+      expect(current_path).to eq links_path
+      expect(page).to have_content("THOUGHTS FOUND HERE!")
     end
   end
+
+  context "creates new account" do
+    scenario "signs up new account" do
+      visit new_user_path
+
+      fill_in "Email", with: "test@testemail.com"
+      fill_in "Password", with: "password"
+      fill_in "Confirm password", with: "password"
+      click_button "Sign Up"
+
+      expect(User.first.email).to eq ("test@testemail.com")
+      expect(current_path).to eq links_path
+      expect(page).to have_content("THOUGHTS FOUND HERE!")
+    end
+  end
+
+  context "signs out" do
+    scenario "user sees root welcome page" do
+      visit new_user_path
+
+      fill_in "Email", with: "test@testemail.com"
+      fill_in "Password", with: "password"
+      fill_in "Confirm password", with: "password"
+      click_button "Sign Up"
+
+      click_link "Log Out"
+
+      expect(current_path).to eq welcome_path
+      expect(page).to have_content("WELCOME!")
+    end
+  end
+
 end

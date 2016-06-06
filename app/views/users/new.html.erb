@@ -1,0 +1,14 @@
+<h1>It doesn't look like you have an account yet. Sign up here!</h1>
+
+<div class="login-box">
+  <%= form_for @user do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :confirm_password %>
+    <%= f.password_field :confirm_password %>
+
+    <%= f.submit "Sign Up", class: "btn btn-success" %>
+  <% end %>
+</div>

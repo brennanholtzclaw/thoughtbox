@@ -1,11 +1,6 @@
 WELCOME!
 
-<div class="login-box">
-  <%= form_for(:welcome, url: login_path) do |f| %>
-    <h4><%= f.label :username %></h4>
-    <h4><%= f.text_field :username %></h4>
-    <h4><%= f.label :password %></h4>
-    <h4><%= f.password_field :password %></h4>
-    <%= f.submit "Login to your account", class: "btn btn-success btn-font-size" %>
-  <% end %>
-</div>
+
+<%= link_to "Login", login_path %>
+<br/>
+<%= link_to "Sign Up", new_user_path %>
