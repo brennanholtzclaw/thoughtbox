@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  def unauthenticated_user
+    redirect_to welcome_path unless current_user
+  end
 end
