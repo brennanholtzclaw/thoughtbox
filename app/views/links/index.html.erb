@@ -21,9 +21,9 @@
       <%= link.url %>
     </li>
     <% if link.read %>
-      <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: "btn btn-danger" %>
+      <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: "btn btn-danger mark-unread" %>
     <% else %>
-      <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success" %>
+      <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success mark-read" %>
     <% end %>
     <%= link_to "Edit this link", edit_link_path(link), class: "btn btn-primary" %>
   </div>
