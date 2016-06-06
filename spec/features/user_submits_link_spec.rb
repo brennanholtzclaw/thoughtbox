@@ -50,4 +50,24 @@ RSpec.feature "User can submit new links" do
       expect(page).to have_content("Title can't be blank")
     end
   end
+
+  context "User should not see another user link" do
+    scenario "With other links created, user only see own" do
+      user1 = create(:user, email: "not@you.com", password: "password1")
+      link1 = create(:link, title: "not yours", url: "http://www.mine.com")
+      user1.links << link1
+      user2 = create(:user)
+      link2 = create(:link)
+      user2.links << link2
+
+      visit login_path
+      fill_in "Email", with: user2.email
+      fill_in "Password", with: "password"
+      fill_in "Confirm password", with: "password"
+      click_button "Login"
+
+      expect(page).to have_content(user2.links.first.title)
+      expect(page).to_not have_content(user1.links.first.title)
+    end
+  end
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :link do
-    url "MyString"
+    url "http://www.example.com"
     title "MyString"
     read false
     user nil
