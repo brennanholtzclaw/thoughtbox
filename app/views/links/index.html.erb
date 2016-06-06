@@ -15,14 +15,17 @@
 
 <ul>
   <% @links.each do |link| %>
+  <div class='link-in-list <%= "#{link.read}" %>'>
     <li>
       <%= link.title %><br>
       <%= link.url %>
     </li>
     <% if link.read %>
-      <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: "btn btn-danger unread" %>
+      <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: "btn btn-danger" %>
     <% else %>
-      <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success read" %>
+      <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success" %>
     <% end %>
+  </div>
+  <br>
   <% end %>
 </ul>
