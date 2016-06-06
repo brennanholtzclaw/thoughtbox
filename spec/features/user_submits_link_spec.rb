@@ -33,7 +33,7 @@ RSpec.feature "User can submit new links" do
       fill_in "Url", with: "notalink"
       click_button "Submit Link"
 
-      expect(page).to have_content("Url is not a valid URL")
+      expect(page).to have_content("Url is invalid")
     end
 
     scenario "User doesn't enter a title" do
