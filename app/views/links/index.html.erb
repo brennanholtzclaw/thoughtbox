@@ -2,3 +2,24 @@
 
 
 <h1>"THOUGHTS FOUND HERE!"</h1>
+
+<%= form_for(@new_link) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%= f.submit "Submit Link", class: "btn btn-success" %>
+<% end %>
+
+<br><br><br>
+
+<ul>
+<% if @links %>
+  <% @links.each do |link| %>
+  <li>
+  <%= link.title %><br>
+  <%= link.url %>
+  </li>
+  <% end %>
+<% end %>
+</ul>
