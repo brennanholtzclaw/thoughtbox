@@ -5,17 +5,13 @@ RSpec.feature "visitor logs in" do
     scenario "sees user dashboard page" do
       user = create(:user)
       visit "/"
-      fill_in "Username", with: user.email
+      fill_in "Email", with: user.email
       fill_in "Password", with: "password"
+      fill_in "Confirm password", with: "password"
       click_button "Login"
 
-      expect(current_path).to eq "/dashboard"
-      expect(page).to have_content("Logged in as #{user.username}")
-      expect(page).to have_content("All Orders")
-      expect(page).to have_content("Logout")
-      expect(page).to have_content("My Account")
-      expect(page).to_not have_content("Login")
-      expect(page).to_not have_content("Create Account")
+      expect(current_path).to eq thoughts_path
+      expect(page).to have_content("THOUGHTS FOUND HERE!")
     end
   end
 end
