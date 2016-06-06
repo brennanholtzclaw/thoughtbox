@@ -1,2 +1,2 @@
-# Activate only the phone
+# Activate only the url validator, many more available
 ActiveValidators.activate(:url)
