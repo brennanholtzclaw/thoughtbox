@@ -11,8 +11,9 @@
   <% flash.each do |type, msg| %>
     <%= content_tag :div, msg %>
   <% end %>
-  
-<%= yield %>
+  <div class="yield well">
+      <%= yield %>
+  </div>
 
 </body>
 </html>
