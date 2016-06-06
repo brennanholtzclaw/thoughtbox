@@ -5,8 +5,7 @@ RSpec.feature "visitor logs in" do
     scenario "sees user dashboard page" do
       user = create(:user)
       visit "/"
-      first(:link, "Login").click
-      fill_in "Username", with: user.username
+      fill_in "Username", with: user.email
       fill_in "Password", with: "password"
       click_button "Login"
 
