@@ -14,4 +14,17 @@ RSpec.feature "visitor logs in" do
       expect(page).to have_content("THOUGHTS FOUND HERE!")
     end
   end
+
+  context "creates new account" do
+    scenario "signs up new account" do
+      visit "/"
+      fill_in "Email", with: "test@testemail.com"
+      fill_in "Password", with: "password"
+      fill_in "Confirm password", with: "password"
+      click_button "Login"
+
+      expect(current_path).to eq thoughts_path
+      expect(page).to have_content("THOUGHTS FOUND HERE!")
+    end
+  end
 end
