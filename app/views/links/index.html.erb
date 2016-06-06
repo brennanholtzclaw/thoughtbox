@@ -5,28 +5,32 @@
 
 <%= form_for(@new_link) do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %><br>
   <%= f.label :url %>
-  <%= f.text_field :url %>
+  <%= f.text_field :url %><br>
   <%= f.submit "Submit Link", class: "btn btn-success" %>
 <% end %>
 
 <br><br><br>
 
-<ul>
-  <% @links.each do |link| %>
-  <div class='link-in-list <%= "#{link.read}" %>'>
-    <li>
-      <%= link.title %><br>
-      <%= link.url %>
+<div class="whole-link">
+
+</div>
+<!-- <ul>
+  <%# @links.each do |link| %>
+  <div class='link-in-list <%#= "#{link.read}" %>'>
+    <li class="link-list-item unread">
+      <%#= link.title %><br>
+      <%#= link.url %>
+<br>
+    <%# if link.read %>
+      <%#= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: "btn btn-danger", id: "mark-unread" %>
+    <%# else %>
+      <%#= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success", id: "mark-read" %>
+    <%# end %>
+    <%#= link_to "Edit this link", edit_link_path(link), class: "btn btn-primary" %>
     </li>
-    <% if link.read %>
-      <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: "btn btn-danger mark-unread" %>
-    <% else %>
-      <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success mark-read" %>
-    <% end %>
-    <%= link_to "Edit this link", edit_link_path(link), class: "btn btn-primary" %>
   </div>
   <br>
-  <% end %>
-</ul>
+  <%# end %>
+</ul> -->
