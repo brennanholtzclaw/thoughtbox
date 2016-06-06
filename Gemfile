@@ -10,7 +10,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'pg'
 gem 'launchy'
-gem 'validate_url'
+# gem 'validate_url' # this gem would not work in development, only testing
+gem 'activevalidators'
 
 group :development, :test do
   gem 'pry'
