@@ -25,6 +25,7 @@
     <% else %>
       <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: "btn btn-success" %>
     <% end %>
+    <%= link_to "Edit this link", edit_link_path(link), class: "btn btn-primary" %>
   </div>
   <br>
   <% end %>

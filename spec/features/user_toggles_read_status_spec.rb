@@ -11,8 +11,8 @@ RSpec.feature "User can mark links as read or unread" do
       click_button "Login"
 
       expect(page).to have_content("THOUGHTS FOUND HERE!")
-      expect(page).to have_content("Link Title 4")
-      expect(page).to have_content("http://www.example.com/4")
+      expect(page).to have_content("Link Title 5")
+      expect(page).to have_content("http://www.example.com/5")
       expect(page).to_not have_content("Mark as Unread")
 
       first(:link, "Mark as Read").click
