@@ -12,6 +12,7 @@ gem 'pg'
 gem 'launchy'
 # gem 'validate_url' # this gem would not work in development, only testing
 gem 'activevalidators'
+gem 'responders'
 
 group :development, :test do
   gem 'pry'
